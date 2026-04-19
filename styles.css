@@ -1063,6 +1063,9 @@ footer .container {
   .title {
     font-size: 52px;
   }
+  .header {
+    top: 36%;
+  }
   .header__para {
     font-size: 18px;
   }
@@ -1080,5 +1083,11 @@ footer .container {
   }
   .modal__half {
     padding: 40px;
+  }
+}
+
+@media (max-width: 324px) {
+  .header {
+    top: 46%;
   }
 }
