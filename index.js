@@ -1,6 +1,13 @@
 let isModalOpen = false;
 let contrastToggle = false;
 
+let isMenuOpen = false;
+
+function toggleMenu() {
+  isMenuOpen = !isMenuOpen;
+  document.body.classList.toggle("menu--open", isMenuOpen);
+}
+
 /* =========================
    DARK MODE
 ========================= */
@@ -16,6 +23,14 @@ function toggleContrast() {
     backLayer.stop();
     midLayer.stop();
     frontLayer.stop();
+  }
+
+  const mobileToggleText = document.querySelector(".mobile-only");
+
+  if (mobileToggleText) {
+    mobileToggleText.textContent = contrastToggle
+    ? "🔆 Light Mode 🔆"
+    : "🔥 Dark Mode 🔥";
   }
 }
 
@@ -120,7 +135,7 @@ function createMatrix(canvasId, speedMultiplier, fadeStrength, blurOffset) {
       if (Math.random() > 0.97) {
         drops[i] += speedMultiplier;
       } else {
-        drops[i] += speedMultiplier * 0.1;
+        drops[i] += speedMultiplier * 0.3;
       }
 
       // draw trail
@@ -217,3 +232,16 @@ function type() {
 }
 
 type();
+
+// =========================
+// CLOSE MENU WHEN CLICKING OUTSIDE
+// =========================
+document.addEventListener("click", (e) => {
+  if (
+    !e.target.closest(".nav__link--list") &&
+    !e.target.closest(".nav__menu-btn")
+  ) {
+    isMenuOpen = false;
+    document.body.classList.remove("menu--open");
+  }
+});

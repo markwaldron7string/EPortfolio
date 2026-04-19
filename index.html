@@ -1,164 +1,378 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mark Waldron</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mark Waldron</title>
 
-  <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css" />
 
-  <script src="https://kit.fontawesome.com/a09c87c1d7.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/a09c87c1d7.js"
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script>
-    (function(){
-      emailjs.init({
-        publicKey: "pzKixyN1PhnSzLVmX",
-      });
-    })();
-  </script>
-</head>
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init({
+          publicKey: "pzKixyN1PhnSzLVmX",
+        });
+      })();
+    </script>
+  </head>
 
-<body>
+  <body>
+    <!-- MATRIX BACKGROUND -->
+    <canvas id="matrix-back"></canvas>
+    <canvas id="matrix-mid"></canvas>
+    <canvas id="matrix-front"></canvas>
 
-  <!-- MATRIX BACKGROUND -->
-  <canvas id="matrix-back"></canvas>
-  <canvas id="matrix-mid"></canvas>
-  <canvas id="matrix-front"></canvas>
-
-  <section id="landing-page">
-    <nav>
-      <div class="logo-wrapper">
-        <img id="personal-logo" src="./assets/MW-Logo.png" alt="MW Logo">
-      </div>
-      <ul class="nav__link--list">
-        <li class="nav__link" onclick="toggleModal()">
-          <a href="#" class="nav__link--anchor link__hover-effect link__hover-effect--black">About</a>
-        </li>
-        <li class="nav__link">
-          <a href="#projects" class="nav__link--anchor link__hover-effect link__hover-effect--black">Projects</a>
-        </li>
-        <li class="nav__link" onclick="toggleModal()">
-          <a href="#" class="nav__link--anchor link__hover-effect link__hover-effect--black">Contact</a>
-        </li>
-        <li class="nav__link click" onclick="toggleContrast()">
-          <a href="#" class="nav__link--anchor link__hover-effect link__hover-effect--black">
-            <i class="fa-solid fa-circle-half-stroke"></i>
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <header class="header">
-      <div class="header__content">
-        <h1 class="title">Mark Waldron</h1>
-
-        <h2 class="subtitle">
-          I'm a <span class="typing orange"></span>
-        </h2>
-
-        <p class="header__para">
-          I build fast, modern, and user-focused web applications.
-          <br>
-          Here's a bit more <b class="orange click" onclick="toggleModal()">about me.</b>
-        </p>
-
-        <div class="social__list">
-          <a href="#" target="_blank" class="social__link click">
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-          <a href="https://github.com/markwaldron7string" target="_blank" class="social__link click">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <a href="./assets/resume.pdf" target="_blank" class="social__link click">
-            <i class="fa-solid fa-file-lines"></i>
-          </a>
-        </div>
-      </div>
-    </header>
-
-    <button class="mail__btn click" onclick="toggleModal()">
-      <i class="fa-solid fa-envelope"></i>
-    </button>
-
-    <a href="#projects" class="scroll">
-      <div class="scroll__icon"></div>
-    </a>
-
-    <!-- MODAL -->
-    <div class="modal">
-      <div class="modal__half modal__about">
-        <h3 class="modal__title">Here's a bit about me.</h3>
-        <h4 class="modal__sub-title">Frontend Software Engineer</h4>
-        <p class="modal__para">
-          I'm a frontend engineer passionate about building clean UI and great user experiences.
-        </p>
-      </div>
-
-      <div class="modal__half modal__contact">
-        <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
-
-        <h3 class="modal__title">Let's have a chat!</h3>
-        <h4 class="modal__sub-title">I'm open to opportunities.</h4>
-
-        <form id="contact__form" onsubmit="contact(event)">
-          <input class="input" name="user_name" placeholder="Name" required />
-          <input class="input" name="user_email" placeholder="Email" required />
-          <textarea class="input" name="message" placeholder="Message" required></textarea>
-
-          <button class="form__submit">Submit</button>
-        </form>
-
-        <div class="modal__overlay modal__overlay--loading">
-          <i class="fas fa-spinner"></i>
+    <section id="landing-page">
+      <nav>
+        <div class="logo-wrapper">
+          <img
+            id="personal-logo"
+            class="logo"
+            src="./assets/MW-Logo.png"
+            alt="MW Logo"
+          />
         </div>
 
-        <div class="modal__overlay modal__overlay--success">
-          Message sent successfully!
+        <div class="nav__menu-btn" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container">
-      <div class="row">
-        <h1 class="section__title">
-          Here are some of my <span class="orange">projects</span>
-        </h1>
-
-        <ul class="project__list">
-          <li class="project">
-            <div class="project__wrapper">
-              <img src="./assets/blinker mockup.png" class="project__img" alt="">
-
-              <div class="project__wrapper--bg"></div>
-
-              <div class="project__description">
-                <h3 class="project__description--title">Car Sales Project</h3>
-                <h4 class="project__description--sub-title">
-                  HTML, CSS, JavaScript
-                </h4>
-                <p class="project__description--para">
-                  Replace this with a real project description ASAP.
-                </p>
-              </div>
-            </div>
+        <ul class="nav__link--list">
+          <li class="nav__link">
+            <a href="javascript:void(0)"
+              onclick="toggleModal(); toggleMenu()"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black">
+              About
+            </a>
           </li>
+
+          <li class="nav__link" onclick="toggleMenu()">
+            <a href="#projects" class="nav__link--anchor link__hover-effect link__hover-effect--black">
+              Projects
+            </a>
+          </li>
+
+          <li class="nav__link" onclick="toggleModal(); toggleMenu()">
+            <a href="javascript:void(0)" class="nav__link--anchor link__hover-effect link__hover-effect--black">
+              Contact
+            </a>
+          </li>
+
+          <li class="nav__link click" onclick="toggleContrast(); toggleMenu()">
+            <a href="javascript:void(0)" class="nav__link--anchor link__hover-effect link__hover-effect--black">
+              <span class="desktop-only">
+                <i class="fa-solid fa-circle-half-stroke"></i>
+              </span>
+              <span class="mobile-only">🔥 Dark Mode 🔥</span>
+            </a>
+          </li>
+
         </ul>
+      </nav>
+
+      <header class="header">
+        <div class="header__content">
+          <h1 class="title">Mark Waldron</h1>
+
+          <h2 class="subtitle">I'm a <span class="typing orange"></span></h2>
+
+          <p class="header__para">
+            I build fast, modern, and user-focused web applications.
+            <br />
+            Here's a bit more
+            <b class="orange click" onclick="toggleModal()">about me.</b>
+          </p>
+
+          <div class="social__list">
+            <a
+              href="https://www.linkedin.com/in/mark-waldron-449940158"
+              target="_blank"
+              class="social__link click"
+            >
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+
+            <a
+              href="https://github.com/markwaldron7string"
+              target="_blank"
+              class="social__link click"
+            >
+              <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a
+              href="./assets/resume.pdf"
+              target="_blank"
+              class="social__link click"
+            >
+              <i class="fa-solid fa-file-lines"></i>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <button class="mail__btn click" onclick="toggleModal()">
+        <i class="fa-solid fa-envelope"></i>
+      </button>
+
+      <a href="#projects" class="scroll">
+        <div class="scroll__icon"></div>
+      </a>
+
+      <!-- MODAL -->
+      <div class="modal">
+        <div class="modal__half modal__about">
+          <h3 class="modal__title">Here's a bit about me.</h3>
+          <h4 class="modal__sub-title">Frontend Software Engineer</h4>
+          <p class="modal__para">
+            I'm a frontend engineer passionate about building clean UI and great
+            user experiences.
+          </p>
+        </div>
+
+        <div class="modal__half modal__contact">
+          <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+
+          <h3 class="modal__title">Let's have a chat!</h3>
+          <h4 class="modal__sub-title">I'm open to opportunities.</h4>
+
+          <form id="contact__form" onsubmit="contact(event)">
+            <input class="input" name="user_name" placeholder="Name" required />
+            <input
+              class="input"
+              name="user_email"
+              placeholder="Email"
+              required
+            />
+            <textarea
+              class="input"
+              name="message"
+              placeholder="Message"
+              required
+            ></textarea>
+
+            <button class="form__submit">Submit</button>
+          </form>
+
+          <div class="modal__overlay modal__overlay--loading">
+            <i class="fas fa-spinner"></i>
+          </div>
+
+          <div class="modal__overlay modal__overlay--success">
+            Message sent successfully!
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <div class="row footer__row">
-      <img class="footer__logo--img" src="./assets/mw-logo.svg" alt="">
-      <p class="footer__copyright">© 2026 Mark Waldron</p>
-    </div>
-  </footer>
+    <!-- PROJECTS -->
+    <div class="projects-section__wrapper">
+      <section id="projects">
+        <div class="container">
+          <div class="row">
+            <h1 class="section__title">
+              <span class="white">Here are some of my</span> <span class="orange">projects</span>
+            </h1>
+            <ul class="project__list">
+              <!-- Skinstric -->
+              <li class="project">
+                <a
+                  href="https://skinstric-app-tau.vercel.app/"
+                  target="_blank"
+                  class="project__link"
+                >
+                  <div class="project__wrapper">
+                    <img
+                      src="./assets/skinstric.png"
+                      class="project__img"
+                      alt="Skinstric"
+                    />
+                    <div class="project__wrapper--bg"></div>
+                    <div class="project__description">
+                      <h3 class="project__description--title">Skinstric</h3>
+                      <h4 class="project__description--sub-title">
+                        React, Next.js, Tailwind, AI Integration
+                      </h4>
+                      <p class="project__description--para">
+                        AI-powered skincare analysis app with personalized
+                        recommendations.
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <!-- Wicked Woods -->
+              <li class="project">
+                <a
+                  href="https://wicked-woods.vercel.app/"
+                  target="_blank"
+                  class="project__link"
+                >
+                  <div class="project__wrapper">
+                    <img
+                      src="./assets/WickedWoods.jpg"
+                      class="project__img"
+                      alt="WickedWoods"
+                    />
+                    <div class="project__wrapper--bg"></div>
+                    <div class="project__description">
+                      <h3 class="project__description--title">
+                        The Wicked Woods
+                      </h3>
+                      <h4 class="project__description--sub-title">
+                        React, Next.js, Tailwind, Resend API Integration
+                      </h4>
+                      <p class="project__description--para">
+                        Equestrian center for horse riding lessons and boarding.
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <!-- Summarist -->
+              <li class="project">
+                <a
+                  href="https://advanced-virtual-internship-pied.vercel.app/"
+                  target="_blank"
+                  class="project__link"
+                >
+                  <div class="project__wrapper">
+                    <img
+                      src="./assets/summarist.png"
+                      class="project__img"
+                      alt="Summarist"
+                    />
+                    <div class="project__wrapper--bg"></div>
+                    <div class="project__description">
+                      <h3 class="project__description--title">
+                        Summarist Library
+                      </h3>
+                      <h4 class="project__description--sub-title">
+                        React, Firebase, API Integration
+                      </h4>
+                      <p class="project__description--para">
+                        Digital library platform that delivers summarized books
+                        with authentication, dynamic routing, and clean UI flows.
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <!-- Cryptogram -->
+              <li class="project">
+                <a
+                  href="https://cryptogram-six.vercel.app/"
+                  target="_blank"
+                  class="project__link"
+                >
+                  <div class="project__wrapper">
+                    <img
+                      src="./assets/cryptogram.png"
+                      class="project__img"
+                      alt="Cryptogram"
+                    />
+                    <div class="project__wrapper--bg"></div>
+                    <div class="project__description">
+                      <h3 class="project__description--title">Cryptogram</h3>
+                      <h4 class="project__description--sub-title">
+                        React, APIs, Charting
+                      </h4>
+                      <p class="project__description--para">
+                        Cryptocurrency dashboard with live market data, trend
+                        visualization, and interactive charts.
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              
+              <!-- Ultraverse -->
+              <li class="project">
+                <a
+                  href="https://mark-internship.vercel.app/"
+                  target="_blank"
+                  class="project__link"
+                >
+                  <div class="project__wrapper">
+                    <img
+                      src="./assets/ultraverse.png"
+                      class="project__img"
+                      alt="Ultraverse"
+                    />
+                    <div class="project__wrapper--bg"></div>
+                    <div class="project__description">
+                      <h3 class="project__description--title">Ultraverse NFT</h3>
+                      <h4 class="project__description--sub-title">
+                        React, APIs, Animations (AOS)
+                      </h4>
+                      <p class="project__description--para">
+                        NFT landing page with modern design, animations, and
+                        responsive layout showcasing digital assets.
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
 
-  <script src="index.js"></script>
-</body>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div class="container">
+          <div class="row footer__row">
+            <div class="footer__social--list">
+              <a
+                href="https://github.com/markwaldron7string"
+                target="_blank"
+                class="footer__social--link"
+              >
+                <i class="fa-brands fa-github"></i>
+                <span>GitHub</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/mark-waldron-449940158"
+                target="_blank"
+                class="footer__social--link"
+              >
+                <i class="fa-brands fa-linkedin"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="#" onclick="toggleModal()" class="footer__social--link">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Contact</span>
+              </a>
+              <a
+                href="./assets/resume.pdf"
+                target="_blank"
+                class="footer__social--link"
+              >
+                <i class="fa-solid fa-file-lines"></i>
+                <span>Resume</span>
+              </a>
+            </div>
+          </div>
+          <div class="footer__copyright">
+            © 2026 Mark Waldron
+            <img
+              class="footer__logo--img logo"
+              src="./assets/MW-Logo.png"
+              alt="MW Logo"
+            />
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
 </html>
