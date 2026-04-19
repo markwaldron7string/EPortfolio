@@ -29,8 +29,8 @@ function toggleContrast() {
 
   if (mobileToggleText) {
     mobileToggleText.textContent = contrastToggle
-    ? "🔆 Light Mode 🔆"
-    : "🔥 Dark Mode 🔥";
+      ? "🔆 Light Mode 🔆"
+      : "🔥 Dark Mode 🔥";
   }
 }
 
@@ -184,7 +184,7 @@ function createMatrix(canvasId, speedMultiplier, fadeStrength, blurOffset) {
 ========================= */
 
 const backLayer = createMatrix("matrix-back", 0.06, 0.12, 0.3);
-const midLayer = createMatrix("matrix-mid", 0.12, 0.10, 0.6);
+const midLayer = createMatrix("matrix-mid", 0.12, 0.1, 0.6);
 const frontLayer = createMatrix("matrix-front", 0.2, 0.08, 1);
 
 /* =========================
@@ -238,10 +238,47 @@ type();
 // =========================
 document.addEventListener("click", (e) => {
   if (
+    isMenuOpen &&
     !e.target.closest(".nav__link--list") &&
     !e.target.closest(".nav__menu-btn")
-  ) {
+  )
     isMenuOpen = false;
-    document.body.classList.remove("menu--open");
-  }
+  document.body.classList.remove("menu--open");
 });
+
+// =========
+// PARALLAX
+// =========
+
+function handleScroll() {
+  const scrollY = window.scrollY;
+
+  const landing = document.getElementById("landing-page");
+  const projects = document.querySelector(".projects-section__wrapper");
+
+  if (window.innerWidth > 1024) {
+  const landingOffset = Math.min(scrollY * 0.5, 200);
+  const projectOffset = Math.min(scrollY * 0.3, 150);
+
+  landing.style.backgroundPosition = `center ${-landingOffset}px`;
+  projects.style.backgroundPosition = `center ${-projectOffset}px`;
+} else {
+  landing.style.backgroundPosition = "center center";
+  projects.style.backgroundPosition = "center center";
+}
+
+  const triggerBottom = window.innerHeight * 0.85;
+
+  document.querySelectorAll(".reveal").forEach((el) => {
+    const top = el.getBoundingClientRect().top;
+
+    if (top < triggerBottom) {
+      el.classList.add("reveal--visible");
+    } else {
+      el.classList.remove("reveal--visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", handleScroll);
+handleScroll();
