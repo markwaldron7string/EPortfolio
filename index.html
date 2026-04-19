@@ -48,34 +48,59 @@
 
         <ul class="nav__link--list">
           <li class="nav__link">
-            <a href="javascript:void(0)"
-              onclick="toggleModal(); toggleMenu()"
-              class="nav__link--anchor link__hover-effect link__hover-effect--black">
+            <a
+              href="javascript:void(0)"
+              onclick="
+                toggleModal();
+                toggleMenu();
+              "
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+            >
               About
             </a>
           </li>
 
           <li class="nav__link" onclick="toggleMenu()">
-            <a href="#projects" class="nav__link--anchor link__hover-effect link__hover-effect--black">
+            <a
+              href="#projects"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+            >
               Projects
             </a>
           </li>
 
-          <li class="nav__link" onclick="toggleModal(); toggleMenu()">
-            <a href="javascript:void(0)" class="nav__link--anchor link__hover-effect link__hover-effect--black">
+          <li
+            class="nav__link"
+            onclick="
+              toggleModal();
+              toggleMenu();
+            "
+          >
+            <a
+              href="javascript:void(0)"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+            >
               Contact
             </a>
           </li>
 
-          <li class="nav__link click" onclick="toggleContrast(); toggleMenu()">
-            <a href="javascript:void(0)" class="nav__link--anchor link__hover-effect link__hover-effect--black">
+          <li
+            class="nav__link click"
+            onclick="
+              toggleContrast();
+              toggleMenu();
+            "
+          >
+            <a
+              href="javascript:void(0)"
+              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+            >
               <span class="desktop-only">
                 <i class="fa-solid fa-circle-half-stroke"></i>
               </span>
               <span class="mobile-only">🔥 Dark Mode 🔥</span>
             </a>
           </li>
-
         </ul>
       </nav>
 
@@ -124,7 +149,7 @@
         <i class="fa-solid fa-envelope"></i>
       </button>
 
-      <a href="#projects" class="scroll">
+      <a href="#projects" class="scroll" onclick="scrollToProjects(event)">
         <div class="scroll__icon"></div>
       </a>
 
@@ -134,8 +159,14 @@
           <h3 class="modal__title">Here's a bit about me.</h3>
           <h4 class="modal__sub-title">Frontend Software Engineer</h4>
           <p class="modal__para">
-            I'm a frontend engineer passionate about building clean UI and great
-            user experiences.
+            I'm a frontend engineer who enjoys building sleek, high-performance
+            web applications with a strong focus on user experience. I work
+            primarily with React and Next.js, and I like bringing ideas to life
+            through clean design and thoughtful interactions.
+            <br /><br />
+            Whether it's crafting responsive layouts, integrating APIs, or
+            refining UI details, I aim to build products that feel polished and
+            intuitive.
           </p>
         </div>
 
@@ -180,7 +211,8 @@
         <div class="container">
           <div class="row">
             <h1 class="section__title">
-              <span class="white">Here are some of my</span> <span class="orange">projects</span>
+              <span class="white">Here are some of my</span>
+              <span class="orange">projects</span>
             </h1>
             <ul class="project__list">
               <!-- Skinstric -->
@@ -261,7 +293,8 @@
                       </h4>
                       <p class="project__description--para">
                         Digital library platform that delivers summarized books
-                        with authentication, dynamic routing, and clean UI flows.
+                        with authentication, dynamic routing, and clean UI
+                        flows.
                       </p>
                     </div>
                   </div>
@@ -294,7 +327,7 @@
                   </div>
                 </a>
               </li>
-              
+
               <!-- Ultraverse -->
               <li class="project reveal">
                 <a
@@ -310,7 +343,9 @@
                     />
                     <div class="project__wrapper--bg"></div>
                     <div class="project__description">
-                      <h3 class="project__description--title">Ultraverse NFT</h3>
+                      <h3 class="project__description--title">
+                        Ultraverse NFT
+                      </h3>
                       <h4 class="project__description--sub-title">
                         React, APIs, Animations (AOS)
                       </h4>
@@ -322,7 +357,6 @@
                   </div>
                 </a>
               </li>
-
             </ul>
           </div>
         </div>

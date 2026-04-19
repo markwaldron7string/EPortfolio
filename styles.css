@@ -594,7 +594,7 @@ nav {
   padding: 40px 72px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
   transition: all 300ms ease-in;
 }
@@ -607,6 +607,7 @@ nav {
 .modal__about {
   background-color: rgb(245, 245, 245);
   transform: translateX(-110%);
+  height: 100vh;
 }
 
 .modal__languages {

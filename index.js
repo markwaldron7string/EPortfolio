@@ -3,6 +3,11 @@ let contrastToggle = false;
 
 let isMenuOpen = false;
 
+// Prevent browser from restoring scroll position (fixes mobile auto-jump)
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
 function toggleMenu() {
   isMenuOpen = !isMenuOpen;
   document.body.classList.toggle("menu--open", isMenuOpen);
@@ -241,9 +246,10 @@ document.addEventListener("click", (e) => {
     isMenuOpen &&
     !e.target.closest(".nav__link--list") &&
     !e.target.closest(".nav__menu-btn")
-  )
+  ) {
     isMenuOpen = false;
-  document.body.classList.remove("menu--open");
+    document.body.classList.remove("menu--open");
+  }
 });
 
 // =========
@@ -280,5 +286,23 @@ function handleScroll() {
   });
 }
 
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+  }, 0);
+});
+
 window.addEventListener("scroll", handleScroll);
 handleScroll();
+
+function scrollToProjects(e) {
+  e.preventDefault();
+
+  const projects = document.getElementById("projects");
+
+  if (projects) {
+    projects.scrollIntoView({
+      behavior: "smooth",
+    });
+  }
+}
