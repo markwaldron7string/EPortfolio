@@ -1005,7 +1005,7 @@ footer .container {
     transform: translateY(-100%);
     opacity: 0;
     transition: transform 0.4s ease, opacity 0.3s ease;
-    padding: calc(46px + env(safe-area-inset-top)) 0 48px;
+    padding: calc(56px + env(safe-area-inset-top)) 0 56px;
     min-height: 240px;
     display: flex;
     flex-direction: column;
