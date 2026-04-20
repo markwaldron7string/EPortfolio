@@ -1071,6 +1071,9 @@ footer .container {
   .title {
     font-size: 52px;
   }
+  .header {
+    top: 300px;
+  }
   .header__para {
     font-size: 18px;
   }
@@ -1093,6 +1096,6 @@ footer .container {
 
 @media (max-width: 324px) {
   .header {
-    top: 46%;
+    top: 34%;
   }
 }
