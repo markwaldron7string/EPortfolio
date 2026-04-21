@@ -306,3 +306,39 @@ function scrollToProjects(e) {
     });
   }
 }
+
+// MOBILE PROJECT CARD TOGGLE
+document.querySelectorAll(".project__info-btn").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const wrapper = btn.closest(".project__wrapper");
+    const icon = btn.querySelector("i");
+
+    const isActive = wrapper.classList.contains("active");
+
+    document.querySelectorAll(".project__wrapper").forEach((w) => {
+      w.classList.remove("active");
+      const i = w.querySelector(".project__info-btn i");
+      if (i) i.className = "fa-solid fa-info";
+    });
+
+    if (!isActive) {
+      wrapper.classList.add("active");
+      icon.className = "fa-solid fa-xmark";
+    }
+  });
+});
+
+// TAP OUTSIDE TO CLOSE
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".project__wrapper")) {
+    document.querySelectorAll(".project__wrapper").forEach((w) => {
+      w.classList.remove("active");
+
+      const i = w.querySelector(".project__info-btn i");
+      if (i) i.className = "fa-solid fa-info";
+    });
+  }
+});
