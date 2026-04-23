@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Mark Waldron</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="about.css" />
+
+    <script
+      src="https://kit.fontawesome.com/a09c87c1d7.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="logo-wrapper">
+        <a href="index.html">
+          <img
+            id="personal-logo"
+            class="logo"
+            src="./assets/MW-Logo.png"
+            alt="MW Logo"
+          />
+        </a>
+      </div>
+
+      <div class="nav__menu-btn" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav__link--list">
+        <li class="nav__link" onclick="toggleMenu(true)">
+          <a
+            href="index.html"
+            class="nav__link--anchor link__hover-effect link__hover-effect--black"
+          >
+            Home
+          </a>
+        </li>
+
+        <li
+          class="nav__link"
+          onclick="
+            toggleMenu(true);
+            toggleModal();
+          "
+        >
+          <a
+            href="javascript:void(0)"
+            class="nav__link--anchor link__hover-effect link__hover-effect--black"
+          >
+            Contact
+          </a>
+        </li>
+
+        <li class="nav__link click">
+          <a
+            href="javascript:void(0)"
+            onclick="
+              event.stopPropagation();
+              toggleMenu(true);
+              closeModalIfOpen();
+              toggleContrast();
+            "
+            class="nav__link--anchor link__hover-effect link__hover-effect--black"
+          >
+            <span class="desktop-only">
+              <i class="fa-solid fa-circle-half-stroke"></i>
+            </span>
+            <span class="mobile-only">
+                <i class="fa-solid fa-circle-half-stroke"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ABOUT SECTION -->
+    <section class="about">
+      <div class="container">
+        <div class="row about__row">
+          <!-- IMAGE -->
+          <div class="about__img--wrapper reveal">
+            <img
+              src="./assets/about-me.jpg"
+              alt="Mark playing guitar"
+              class="about__img"
+            />
+          </div>
+
+          <!-- TEXT -->
+          <div class="about__content reveal">
+            <h1 class="about__title">About Me</h1>
+
+            <p class="about__highlight">
+              I build fast, modern web applications with a focus on performance,
+              usability, and clean design.
+            </p>
+
+            <p class="reveal">
+              I’m a frontend developer with a background that didn’t start in
+              tech—but in music.
+            </p>
+
+            <p class="reveal">
+              I’ve been playing guitar for over 20 years, focusing on
+              progressive and technical styles that demand precision,
+              discipline, and attention to detail. That mindset naturally
+              carried over into development, where I approach building
+              interfaces the same way I approach writing music: thoughtfully,
+              deliberately, and with a focus on how everything works together.
+            </p>
+
+            <p class="reveal">
+              Before transitioning into development, I built a career in the
+              insurance industry, moving from sales into underwriting at
+              Progressive. That experience strengthened my analytical thinking,
+              problem-solving, and ability to work within complex systems—skills
+              I now apply directly to building reliable, user-focused
+              applications.
+            </p>
+
+            <p class="reveal">
+              My shift into frontend development started with a desire for a new
+              challenge and a more creative outlet. As a musician, I was already
+              deeply involved in technical problem-solving—programming
+              MIDI-controlled guitar processors, designing automated live show
+              elements, and building out my own in-ear monitoring system.
+            </p>
+
+            <p class="reveal">
+              After completing a frontend-focused bootcamp, I built a
+              full-featured web application called <b>Summarist</b>, which
+              included an audio player, subscription flows, and a payment
+              interface. That project was a turning point—it showed me I could
+              take an idea and build a complete, working product from the ground
+              up.
+            </p>
+
+            <p class="reveal">
+              Today, I focus on building clean, responsive, and high-performance
+              web experiences using React and Next.js. I enjoy the process of
+              turning ideas into polished products and refining the details that
+              make interfaces feel intuitive and seamless.
+            </p>
+
+            <p class="reveal">
+              I’ve always been drawn to things that are both technically
+              demanding and creatively expressive—and frontend development sits
+              right at that intersection for me.
+            </p>
+
+            <!-- SOCIALS -->
+            <div class="about__links">
+              <a href="https://github.com/markwaldron7string" target="_blank">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/mark-waldron-449940158"
+                target="_blank"
+              >
+                <i class="fa-brands fa-linkedin"></i>
+              </a>
+              <a href="https://youtube.com/@markwaldron7string" target="_blank">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="index.js"></script>
+    <!-- MODAL -->
+    <div class="modal">
+      <div class="modal__half modal__about">
+        <h3 class="modal__title">Mark Waldron</h3>
+        <h4 class="modal__sub-title">Frontend Software Engineer</h4>
+        <p class="modal__para">
+          I help bring ideas to life through clean, modern websites that are
+          fast, responsive, and easy to use. I work primarily with React and
+          Next.js to build interfaces that not only look great, but perform
+          reliably across devices.
+          <br /><br />
+          Whether you need a new site, a redesign, or improvements to an
+          existing product, I focus on delivering solutions that feel polished
+          and professional.
+          <br /><br />
+          Let's build something great together.
+        </p>
+      </div>
+
+      <div class="modal__half modal__contact">
+        <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+
+        <h3 class="modal__title">Let's chat!</h3>
+        <h4 class="modal__sub-title">I'm open to opportunities.</h4>
+
+        <form id="contact__form">
+          <input class="input" name="name" placeholder="Name" required />
+          <input class="input" name="email" placeholder="Email" required />
+          <textarea
+            class="input"
+            name="message"
+            placeholder="Message"
+            required
+          ></textarea>
+
+          <input
+            type="hidden"
+            name="_subject"
+            value="New message from your website!"
+          />
+
+          <button class="form__submit">Submit</button>
+        </form>
+
+        <div class="modal__overlay modal__overlay--loading">
+          <i class="fas fa-spinner"></i>
+        </div>
+
+        <div class="modal__overlay modal__overlay--success">
+          Message sent! I'll get back to you soon.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

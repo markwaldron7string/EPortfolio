@@ -8,8 +8,13 @@ if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }
 
-function toggleMenu() {
-  isMenuOpen = !isMenuOpen;
+function toggleMenu(forceClose = false) {
+  if (forceClose) {
+    isMenuOpen = false;
+  } else {
+    isMenuOpen = !isMenuOpen;
+  }
+
   document.body.classList.toggle("menu--open", isMenuOpen);
 }
 
@@ -30,13 +35,17 @@ function toggleContrast() {
     frontLayer.stop();
   }
 
-  const mobileToggleText = document.querySelector(".mobile-only");
+  // Mobile text
+document.querySelectorAll(".mobile-only").forEach((el) => {
+  el.textContent = contrastToggle ? "🔆 Light Mode 🔆" : "🔥 Dark Mode 🔥";
+});
 
-  if (mobileToggleText) {
-    mobileToggleText.textContent = contrastToggle
-      ? "🔆 Light Mode 🔆"
-      : "🔥 Dark Mode 🔥";
-  }
+// Desktop icon swap (optional but better UX)
+document.querySelectorAll(".desktop-only i").forEach((icon) => {
+  icon.className = contrastToggle
+    ? "fa-solid fa-sun"
+    : "fa-solid fa-circle-half-stroke";
+});
 }
 
 /* =========================
@@ -45,6 +54,13 @@ function toggleContrast() {
 function toggleModal() {
   isModalOpen = !isModalOpen;
   document.body.classList.toggle("modal--open", isModalOpen);
+}
+
+function closeModalIfOpen() {
+  if (isModalOpen) {
+    isModalOpen = false;
+    document.body.classList.remove("modal--open");
+  }
 }
 
 /* =========================
@@ -236,15 +252,16 @@ function handleScroll() {
   const projects = document.querySelector(".projects-section__wrapper");
 
   if (window.innerWidth > 1024) {
-  const landingOffset = Math.min(scrollY * 0.5, 200);
-  const projectOffset = Math.min(scrollY * 0.3, 150);
+    if (landing) {
+      const landingOffset = Math.min(scrollY * 0.5, 200);
+      landing.style.backgroundPosition = `center ${-landingOffset}px`;
+    }
 
-  landing.style.backgroundPosition = `center ${-landingOffset}px`;
-  projects.style.backgroundPosition = `center ${-projectOffset}px`;
-} else {
-  landing.style.backgroundPosition = "center center";
-  projects.style.backgroundPosition = "center center";
-}
+    if (projects) {
+      const projectOffset = Math.min(scrollY * 0.3, 150);
+      projects.style.backgroundPosition = `center ${-projectOffset}px`;
+    }
+  }
 
   const triggerBottom = window.innerHeight * 0.85;
 
