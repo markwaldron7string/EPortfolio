@@ -68,6 +68,9 @@ body {
   margin-bottom: 24px;
   color: #f06449;
 }
+.dark-theme .about__highlight {
+  color: #f06449;
+}
 
 .about__content p {
   margin-bottom: 16px;

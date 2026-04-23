@@ -16,11 +16,23 @@ function toggleMenu(forceClose = false) {
   }
 
   document.body.classList.toggle("menu--open", isMenuOpen);
+
+  updateThemeIcons();
 }
 
 /* =========================
    DARK MODE
 ========================= */
+  function updateThemeIcons() {
+  document
+    .querySelectorAll(".desktop-only i, .mobile-only i")
+    .forEach((icon) => {
+      icon.className = contrastToggle
+        ? "fa-solid fa-circle-half-stroke"
+        : "fa-solid fa-sun";
+    });
+}
+
 function toggleContrast() {
   contrastToggle = !contrastToggle;
   document.body.classList.toggle("dark-theme", contrastToggle);
@@ -40,12 +52,7 @@ document.querySelectorAll(".mobile-only").forEach((el) => {
   el.textContent = contrastToggle ? "🔆 Light Mode 🔆" : "🔥 Dark Mode 🔥";
 });
 
-// Desktop icon swap (optional but better UX)
-document.querySelectorAll(".desktop-only i").forEach((icon) => {
-  icon.className = contrastToggle
-    ? "fa-solid fa-sun"
-    : "fa-solid fa-circle-half-stroke";
-});
+updateThemeIcons();
 }
 
 /* =========================
