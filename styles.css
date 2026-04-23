@@ -648,6 +648,7 @@ nav {
 
 .modal__contact {
   position: relative;
+  overflow: visible;
   background-color: #242424;
   color: white;
   transform: translateX(110%);
@@ -728,12 +729,6 @@ nav {
   font-weight: 700;
   text-align: center;
   padding: 28px;
-}
-.modal__overlay--success.visible {
-  opacity: 1 !important;
-  visibility: visible !important;
-  background: red !important;
-  z-index: 9999 !important;
 }
 
 .modal__overlay--visible {
