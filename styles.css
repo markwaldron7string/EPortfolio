@@ -729,6 +729,12 @@ nav {
   text-align: center;
   padding: 28px;
 }
+.modal__overlay--success.visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: red !important;
+  z-index: 9999 !important;
+}
 
 .modal__overlay--visible {
   z-index: 1;
