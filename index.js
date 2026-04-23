@@ -320,40 +320,44 @@ document.addEventListener("click", (e) => {
 // CONTACT FORM (FORMSPREE AJAX)
 // =============================
 
-const form = document.getElementById("contact__form");
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contact__form");
 
-if (form) {
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-    const loading = document.querySelector(".modal__overlay--loading");
-    const success = document.querySelector(".modal__overlay--success");
+      console.log("FORM SUBMITTED"); // 👈 add this
 
-    loading.classList.add("visible");
+      const loading = document.querySelector(".modal__overlay--loading");
+      const success = document.querySelector(".modal__overlay--success");
 
-    const formData = new FormData(form);
+      loading.classList.add("visible");
 
-    try {
-      const response = await fetch("https://formspree.io/f/mojypypa", {
-        method: "POST",
-        body: formData,
-        headers: {
-          Accept: "application/json",
-        },
-      });
+      const formData = new FormData(form);
 
-      loading.classList.remove("visible");
+      try {
+        const response = await fetch("https://formspree.io/f/mojypypa", {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
 
-      if (response.ok) {
-        console.log("SUCCESS OVERLAY TRIGGERED");
-        success.classList.add("visible");
-        form.reset();
-      } else {
-        alert("Something went wrong. Please try again.");
+        loading.classList.remove("visible");
+
+        if (response.ok) {
+          console.log("SUCCESS TRIGGERED"); // 👈 add this
+          success.classList.add("visible");
+          form.reset();
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      } catch (error) {
+        loading.classList.remove("visible");
+        alert("Network error. Please try again.");
       }
-    } catch (error) {
-      loading.classList.remove("visible");
-      alert("Network error. Please try again.");
-    }
-  });
-}
+    });
+  }
+});
