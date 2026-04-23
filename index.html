@@ -11,16 +11,6 @@
       src="https://kit.fontawesome.com/a09c87c1d7.js"
       crossorigin="anonymous"
     ></script>
-
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>
-      (function () {
-        emailjs.init({
-          publicKey: "pzKixyN1PhnSzLVmX",
-        });
-      })();
-    </script>
   </head>
 
   <body>
@@ -111,7 +101,8 @@
           <h2 class="subtitle">I'm a <span class="typing orange"></span></h2>
 
           <p class="header__para">
-            I build fast, modern, and user-focused web applications for small businesses.
+            I build fast, modern, and user-focused web applications for small
+            businesses.
             <br />
             Here's a bit more
             <b class="orange click" onclick="toggleModal()">about me.</b>
@@ -176,20 +167,21 @@
           <h3 class="modal__title">Let's have a chat!</h3>
           <h4 class="modal__sub-title">I'm open to opportunities.</h4>
 
-          <form id="contact__form" onsubmit="contact(event)">
-            <input class="input" name="user_name" placeholder="Name" required />
-            <input
-              class="input"
-              name="user_email"
-              placeholder="Email"
-              required
-            />
+          <form id="contact__form">
+            <input class="input" name="name" placeholder="Name" required />
+            <input class="input" name="email" placeholder="Email" required />
             <textarea
               class="input"
               name="message"
               placeholder="Message"
               required
             ></textarea>
+
+            <input
+              type="hidden"
+              name="_subject"
+              value="New message from your website!"
+            />
 
             <button class="form__submit">Submit</button>
           </form>
@@ -199,7 +191,7 @@
           </div>
 
           <div class="modal__overlay modal__overlay--success">
-            Message sent successfully!
+            Message sent! I'll get back to you soon.
           </div>
         </div>
       </div>

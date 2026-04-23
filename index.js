@@ -48,33 +48,6 @@ function toggleModal() {
 }
 
 /* =========================
-   EMAIL
-========================= */
-function contact(event) {
-  event.preventDefault();
-
-  const loading = document.querySelector(".modal__overlay--loading");
-  const success = document.querySelector(".modal__overlay--success");
-
-  loading.classList.add("modal__overlay--visible");
-
-  emailjs
-    .sendForm(
-      "service_d0jhemc",
-      "template_c9c74ob",
-      event.target,
-      "pzKixyN1PhnSzLVmX",
-    )
-    .then(() => {
-      loading.classList.remove("modal__overlay--visible");
-      success.classList.add("modal__overlay--visible");
-    })
-    .catch(() => {
-      alert("Email failed. Contact directly.");
-    });
-}
-
-/* =========================
    MOUSE PARALLAX
 ========================= */
 let mouseX = 0;
@@ -342,3 +315,44 @@ document.addEventListener("click", (e) => {
     });
   }
 });
+
+// =============================
+// CONTACT FORM (FORMSPREE AJAX)
+// =============================
+
+const form = document.getElementById("contact__form");
+
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const loading = document.querySelector(".modal__overlay--loading");
+    const success = document.querySelector(".modal__overlay--success");
+
+    loading.classList.add("visible");
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mojypypa", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      loading.classList.remove("visible");
+
+      if (response.ok) {
+        success.classList.add("visible");
+        form.reset();
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      loading.classList.remove("visible");
+      alert("Network error. Please try again.");
+    }
+  });
+}
