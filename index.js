@@ -345,6 +345,7 @@ if (form) {
       loading.classList.remove("visible");
 
       if (response.ok) {
+        console.log("SUCCESS OVERLAY TRIGGERED");
         success.classList.add("visible");
         form.reset();
       } else {
