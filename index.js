@@ -63,6 +63,17 @@ function closeModalIfOpen() {
   }
 }
 
+function openModalFromBottom() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+
+  setTimeout(() => {
+    toggleModal();
+  }, 350);
+}
+
 /* =========================
    MOUSE PARALLAX
 ========================= */
