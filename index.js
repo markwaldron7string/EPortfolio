@@ -28,8 +28,8 @@ function toggleMenu(forceClose = false) {
     .querySelectorAll(".desktop-only i, .mobile-only i")
     .forEach((icon) => {
       icon.className = contrastToggle
-        ? "fa-solid fa-circle-half-stroke"
-        : "fa-solid fa-sun";
+        ? "fa-solid fa-sun"
+        : "fa-solid fa-circle-half-stroke";
     });
 }
 
@@ -349,6 +349,10 @@ document.addEventListener("click", (e) => {
       if (i) i.className = "fa-solid fa-info";
     });
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateThemeIcons();
 });
 
 // =============================
