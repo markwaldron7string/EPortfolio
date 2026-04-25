@@ -59,6 +59,7 @@ body::after {
 .subtitle {
   font-size: 28px;
   margin-bottom: 16px;
+  padding-left: 6px;
 }
 
 li {
@@ -389,11 +390,13 @@ nav,
   font-size: 24px;
   line-height: 2;
   max-width: 450px;
+  padding-left: 6px;
 }
 
 .social__list {
   margin-top: 16px;
   display: flex;
+  padding-left: 6px;
 }
 
 .social__link {
