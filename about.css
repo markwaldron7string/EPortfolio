@@ -121,6 +121,13 @@ body {
 .about__content p.reveal:nth-child(6) { transition-delay: 0.7s; }
 .about__content p.reveal:nth-child(7) { transition-delay: 0.8s; }
 
+.dark-theme .modal__about,
+.dark-theme .modal__about p,
+.dark-theme .modal__about h3,
+.dark-theme .modal__about h4 {
+  color: #242424;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   .about__row {

@@ -355,6 +355,30 @@ document.addEventListener("DOMContentLoaded", () => {
   updateThemeIcons();
 });
 
+/* =========================
+   PAGE TRANSITION
+========================= */
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".page-link").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
+
+      if (!href || href.startsWith("#")) return;
+
+      e.preventDefault();
+
+      const transition = document.querySelector(".page-transition");
+      if (!transition) return;
+
+      transition.classList.add("active");
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 500);
+    });
+  });
+});
+
 // =============================
 // CONTACT FORM (FORMSPREE AJAX)
 // =============================
@@ -398,5 +422,13 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Network error. Please try again.");
       }
     });
+  }
+});
+
+window.addEventListener("pageshow", () => {
+  const transition = document.querySelector(".page-transition");
+
+  if (transition) {
+    transition.classList.remove("active");
   }
 });

@@ -22,7 +22,7 @@
   <section id="landing-page">
     <nav>
       <div class="logo-wrapper">
-        <a href="about.html">
+        <a href="about.html" class="page-link">
           <img
             id="personal-logo"
             class="logo"
@@ -42,7 +42,7 @@
           <li class="nav__link">
             <a
               href="about.html"
-              class="nav__link--anchor link__hover-effect link__hover-effect--black"
+              class="nav__link--anchor page-link link__hover-effect link__hover-effect--black"
               onclick="toggleMenu()"
             >
               About
@@ -106,7 +106,7 @@
         I build fast, modern, and user-focused web applications for small
         businesses.
         <br />
-        Here's a bit more <b><a href="about.html" class="orange">about me.</a></b>
+        Here's a bit more <b><a href="about.html" class="orange page-link">about me.</a></b>
       </p>
 
       <div class="social__list">
@@ -138,7 +138,7 @@
 
     <!-- RIGHT: IMAGE -->
     <div class="header__img-wrapper">
-      <a href="about.html">
+      <a href="about.html" class="page-link">
         <img
           src="./assets/8string.png"
           alt="Mark Waldron playing guitar"
@@ -154,7 +154,7 @@
         <i class="fa-solid fa-envelope"></i>
       </button>
 
-      <a href="#projects" class="scroll" onclick="scrollToProjects(event)">
+      <a href="#projects" class="scroll" class="page-link" onclick="scrollToProjects(event)">
         <div class="scroll__icon"></div>
       </a>
 
@@ -420,7 +420,7 @@
           </div>
           <div class="footer__copyright">
             © 2026 Mark Waldron
-            <a href="about.html">
+            <a href="about.html" class="page-link">
               <img
                 class="footer__logo--img logo"
                 src="./assets/MW-Logo.png"
@@ -431,7 +431,7 @@
         </div>
       </footer>
     </div>
-
     <script src="index.js?v=3"></script>
+    <div class="page-transition"></div>
   </body>
 </html>
