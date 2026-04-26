@@ -276,7 +276,8 @@ nav,
 
 #landing-page {
   position: relative;
-  min-height: 100vh;
+  height: 100svh;
+  overflow: hidden;
   background-image: url('./assets/landing.jpg');
   background-size: cover;
   background-position: center;
@@ -287,8 +288,15 @@ nav,
   content: "";
   position: absolute;
   inset: 0;
-  background:rgba(255, 255, 255, 0.35);
-  pointer-events: none; 
+  background: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+  z-index: 0;
+}
+
+nav,
+.header {
+  position: relative;
+  z-index: 1;
 }
 
 .projects-section__wrapper {
@@ -379,18 +387,19 @@ nav,
 }
 
 .header {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  max-width: 1000px;
-  padding: 0 30px;
+  padding: 100px 20px 40px;
+  position: relative;
+  z-index: 2;
 }
 
 .header__para {
   font-size: 24px;
-  line-height: 2;
+  line-height: 1.75;
   max-width: 450px;
   padding-left: 6px;
 }
@@ -400,6 +409,9 @@ nav,
   align-items: center;
   justify-content: space-between;
   gap: 48px;
+  width: 100%;
+  max-width: 1000px;
+  transform: translateY(-40px);
 }
 
 /* TEXT SIDE */
@@ -1063,28 +1075,47 @@ footer .container {
   }
 }
 
+@media (min-width: 769px) {
+  .header {
+    align-items: center;
+  }
+
+  .header__container {
+    transform: translateY(-90px);
+  }
+}
+
 /* SMALL PHONES, TABLETS, LARGE SMARTPHONES */
 @media (max-width: 768px) {
-  .title {
-    font-size: 80px;
+    .header {
+    padding-top: 120px;
+    min-height: auto;
   }
-  .header {
-    padding-top: 100px;
-  }
-  .header__para {
-    font-size: 20px;
-  }
+
   .header__container {
     flex-direction: column;
-    text-align: left;
-    min-height: calc(100vh - 400px);
+    text-align: center;
+    gap: 24px;
+    transform: translateY(-20px);
+  }
+
+  .social__list {
     justify-content: center;
   }
 
+  .title {
+    font-size: 44px;
+  }
+
+  .header__para {
+    font-size: 16px;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
   .header__img-wrapper {
-    max-width: 240px;
-    align-items: center;
-    margin-bottom: 48px;
+    max-width: 180px;
+    margin: 0 auto;
   }
 
   .desktop-only { display: none; }
@@ -1245,18 +1276,11 @@ footer .container {
   .title {
     font-size: 52px;
   }
-  .header {
-    top: 500px;
-  }
   .header__para {
     font-size: 16px;
   }
-  .header__container {
-    transform: translateY(-19%);
-  }
   .header__img-wrapper {
     max-width: 160px;
-    transform: translateY(-8%);
   }
   .project__description--para {
     display: none;
