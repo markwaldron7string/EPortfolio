@@ -20,6 +20,10 @@ body {
     color 0.4s ease;
 }
 
+body.page-loaded {
+  opacity: 1;
+}
+
 /* streak color */
 :root {
   --matrix-color: 255, 55, 0;
@@ -622,6 +626,7 @@ nav {
 .page-transition.active {
   opacity: 1;
   pointer-events: all;
+  transform: translateY(0);
 }
 
 /* MODAL */
