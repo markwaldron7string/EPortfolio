@@ -393,6 +393,39 @@ nav,
   padding-left: 6px;
 }
 
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+/* TEXT SIDE */
+.header__content {
+  flex: 1;
+}
+
+/* IMAGE SIDE */
+.header__img-wrapper {
+  flex: 1;
+  max-width: 320px;
+}
+
+.header__img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+
+  /* subtle premium effect */
+  filter: grayscale(10%) contrast(105%);
+  transition: all 0.3s ease;
+}
+
+.header__img:hover {
+  filter: none;
+  transform: scale(1.02);
+}
+
 .social__list {
   margin-top: 16px;
   display: flex;
@@ -1006,11 +1039,24 @@ footer .container {
     font-size: 80px;
   }
   .header {
-    top: 440px;
+    padding-top: 100px;
   }
   .header__para {
     font-size: 20px;
   }
+  .header__container {
+    flex-direction: column;
+    text-align: left;
+    min-height: calc(100vh - 200px);
+    justify-content: center;
+  }
+
+  .header__img-wrapper {
+    max-width: 240px;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+
   .desktop-only { display: none; }
   .mobile-only { display: inline; }
   .modal {
@@ -1125,12 +1171,14 @@ footer .container {
     align-items: center;
     justify-content: center;
     gap: 12px;
+    margin-top: 12px;
   }
 
   .footer__social--list {
     justify-content: center;
     flex-wrap: wrap;
     gap: 40px;
+    padding-bottom: 8px;
   }
 
   .footer__social--link {
@@ -1138,13 +1186,27 @@ footer .container {
   }
   
   .footer__logo--img {
-    margin: 0px auto 4px;
+    margin: 6px auto 4px;
   }
 
   .footer__copyright {
-    position: static;
+    position: static; 
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    transform: translateY(50%);
+    margin-top: 16px;
+    gap: 6px;
+  }
+  .footer__copyright a {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 62px;
   }
 }
 
@@ -1154,10 +1216,14 @@ footer .container {
     font-size: 52px;
   }
   .header {
-    top: 300px;
+    top: 500px;
   }
   .header__para {
     font-size: 18px;
+  }
+  .header__img-wrapper {
+    max-width: 200px;
+    margin-bottom: 120px;
   }
   .project__description--para {
     display: none;
@@ -1177,7 +1243,8 @@ footer .container {
 }
 
 @media (max-width: 324px) {
-  .header {
-    top: 34%;
+  .header__img-wrapper {
+    max-width: 160px;
   }
 }
+
