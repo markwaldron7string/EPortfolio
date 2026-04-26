@@ -199,14 +199,21 @@ nav,
   transition: all 600ms 800ms;
 }
 
-.modal--open nav,
 .modal--open .scroll,
 .modal--open .header {
   opacity: 0;
   visibility: hidden;
   transition: all 400ms;
 }
-.dark-theme .title,
+.dark-theme .title {
+  color: rgba(240, 100, 73, 0.15); /* faint fill */
+
+  text-shadow:
+    0 0 1px rgba(240, 100, 73, 0.6),
+    0 0 12px rgba(240, 100, 73, 0.6),
+    0 0 24px rgba(240, 100, 73, 0.5);
+}
+
 .dark-theme .section__title,
 .dark-theme .section__sub-title,
 .dark-theme .subtitle,
@@ -278,6 +285,7 @@ nav,
   position: relative;
   height: 100svh;
   overflow: hidden;
+  z-index: 0;
   background-image: url('./assets/landing.jpg');
   background-size: cover;
   background-position: center;
@@ -451,17 +459,22 @@ nav,
 }
 
 .social__link {
-  background-color: #f06449;
+  background-color: black;
   color: white;
   padding: 6px;
   width: 32px;
   height: 32px;
-  font-size: 14px;
+  font-size: 20px;
   margin-right: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+}
+.dark-theme .social__link {
+  background-color: rgb(216, 216, 216);
+  color: black;
+  font-size: 21px;
 }
 
 .mail__btn {
@@ -531,6 +544,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 2;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -550,6 +565,7 @@ nav {
   align-items: center;
   gap: 32px;
   margin-left: auto;
+  z-index: 1000;
 }
 
 .nav__link {
@@ -581,7 +597,7 @@ nav {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  z-index: 101;
+  z-index: 1000;
 }
 
 .nav__menu-btn span {
@@ -600,7 +616,13 @@ nav {
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 200;
+  z-index: 1100;
+}
+
+.menu--open .header {
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.2s ease;
 }
 
 /* 🔥 Animate to X */
@@ -1021,7 +1043,11 @@ footer .container {
 }
 
 .footer__copyright a:hover .footer__logo--img {
-  filter: brightness(0) saturate(100%) invert(55%) sepia(78%) saturate(500%) hue-rotate(5deg);
+  filter: brightness(0) saturate(60%) invert(35%) sepia(4%) saturate(100%) hue-rotate(45deg);
+  transition: filter 0.3s ease;
+}
+.dark-theme .footer__copyright a:hover .footer__logo--img {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(24%) saturate(500%) hue-rotate(5deg);
   transition: filter 0.3s ease;
 }
 
@@ -1206,7 +1232,7 @@ footer .container {
     gap: 24px;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
-    z-index: 100;
+    z-index: 2000;
   }
    .dark-theme .nav__link--list {
     background: rgba(36, 36, 36, 0.25);
