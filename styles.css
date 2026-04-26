@@ -283,7 +283,10 @@ nav,
 
 #landing-page {
   position: relative;
-  height: 100svh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  height: auto;
   overflow: hidden;
   z-index: 0;
   background-image: url('./assets/landing.jpg');
@@ -500,7 +503,7 @@ nav,
 
 .scroll {
   position: absolute;
-  bottom: 32px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -1102,6 +1105,9 @@ footer .container {
 }
 
 @media (min-width: 769px) {
+  #landing-page {
+    height: 100svh;
+  }
   .header {
     align-items: center;
   }
@@ -1300,13 +1306,35 @@ footer .container {
 /* SMALL PHONES */
 @media (max-width: 480px) {
   .title {
-    font-size: 52px;
+    font-size: 40px;
+    line-height: 1.1;
+  }
+  .header {
+    padding-top: 100px;
+    padding-bottom: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header__container {
+    flex-direction: column;
+    gap: 16px;
   }
   .header__para {
-    font-size: 16px;
+    font-size: 15px;
+    line-height: 1.5;
+    max-width: 300px;
+    margin: 0 auto;
+    margin-bottom: 8px;
   }
   .header__img-wrapper {
-    max-width: 160px;
+    max-width: 150px;
+    margin-top: 8px;
+  }
+  .header__links {
+    margin-top: 12px;
+    gap: 12px;
   }
   .project__description--para {
     display: none;
@@ -1322,6 +1350,9 @@ footer .container {
   }
   .modal__half {
     padding: 40px;
+  }
+  .scroll {
+    bottom: 16px;
   }
 }
 
