@@ -1252,11 +1252,11 @@ footer .container {
     font-size: 18px;
   }
   .header__container {
-    min-height: calc(130vh - 450px);
+    min-height: calc(136vh - 450px);
   }
   .header__img-wrapper {
     max-width: 200px;
-    margin-bottom: 172px;
+    transform: translateY(-24%);
   }
   .project__description--para {
     display: none;
