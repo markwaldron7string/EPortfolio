@@ -104,6 +104,9 @@ body {
 .about__links a.github:hover {
   color: #333;
 }
+.dark-theme .about__links a.github:hover {
+  color: #d900ff;
+}
 
 .about__links a.linkedin:hover {
   color: #0077b5;
