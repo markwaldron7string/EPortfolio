@@ -83,11 +83,6 @@ body {
   color: #f06449;
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-}
-
 .about .reveal--visible {
   transform: translateY(0) scale(1);
   opacity: 1;

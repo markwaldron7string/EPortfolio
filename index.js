@@ -97,6 +97,9 @@ window.addEventListener("mousemove", (e) => {
 ========================= */
 function createMatrix(canvasId, speedMultiplier, fadeStrength, blurOffset) {
   const canvas = document.getElementById(canvasId);
+
+  if (!canvas) return { start: () => {}, stop: () => {}, setup: () => {} };
+
   const ctx = canvas.getContext("2d");
 
   let animationId = null;
@@ -288,8 +291,6 @@ function handleScroll() {
 
     if (top < triggerBottom) {
       el.classList.add("reveal--visible");
-    } else {
-      el.classList.remove("reveal--visible");
     }
   });
 }
@@ -301,7 +302,12 @@ window.addEventListener("load", () => {
 });
 
 window.addEventListener("scroll", handleScroll);
-handleScroll();
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    handleScroll();
+  }, 100);
+});
 
 function scrollToProjects(e) {
   e.preventDefault();
@@ -370,11 +376,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const transition = document.querySelector(".page-transition");
       if (!transition) return;
 
+      document.body.classList.add("page-transitioning");
       transition.classList.add("active");
 
       setTimeout(() => {
         window.location.href = href;
-      }, 500);
+      }, 150);
     });
   });
 });
@@ -431,4 +438,10 @@ window.addEventListener("pageshow", () => {
   if (transition) {
     transition.classList.remove("active");
   }
+});
+
+document.body.classList.remove("page-transitioning");
+
+window.addEventListener("load", () => {
+  document.body.classList.remove("modal--open");
 });
