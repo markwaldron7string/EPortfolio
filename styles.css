@@ -409,10 +409,14 @@ nav,
 .header__img-wrapper {
   flex: 1;
   max-width: 320px;
+  width: 100%;
 }
 
 .header__img {
   width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
   border-radius: 16px;
   object-fit: cover;
 
@@ -1074,7 +1078,7 @@ footer .container {
   .header__container {
     flex-direction: column;
     text-align: left;
-    min-height: calc(100vh - 200px);
+    min-height: calc(100vh - 400px);
     justify-content: center;
   }
 
