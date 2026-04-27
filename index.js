@@ -391,25 +391,23 @@ document.addEventListener("DOMContentLoaded", () => {
 /* =========================
    PAGE TRANSITION
 ========================= */
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".page-link").forEach((link) => {
-    link.addEventListener("click", (e) => {
-      const href = link.getAttribute("href");
+document.querySelectorAll(".page-link").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    const href = link.getAttribute("href");
 
-      if (!href || href.startsWith("#")) return;
+    if (!href || href.startsWith("#")) return;
 
-      e.preventDefault();
+    e.preventDefault();
 
-      const transition = document.querySelector(".page-transition");
-      if (!transition) return;
+    const transition = document.querySelector(".page-transition");
+    if (!transition) return;
 
-      document.body.classList.add("page-transitioning");
-      transition.classList.add("active");
+    document.body.classList.add("page-transitioning");
+    transition.classList.add("active");
 
-      setTimeout(() => {
-        window.location.href = href;
-      }, 150);
-    });
+    setTimeout(() => {
+      window.location.href = href;
+    }, 150);
   });
 });
 
@@ -469,6 +467,37 @@ window.addEventListener("pageshow", () => {
 
 document.body.classList.remove("page-transitioning");
 
+// =========================
+// CLEAN PROJECTS SCROLL
+// =========================
+
+// 👇 Step 1: jump instantly BEFORE paint (no flash)
+const params = new URLSearchParams(window.location.search);
+const target = params.get("scroll");
+
+if (target) {
+  const el = document.getElementById(target);
+
+  if (el) {
+    window.scrollTo(0, el.offsetTop);
+  }
+}
+
+// 👇 Step 2: add smooth polish AFTER load
 window.addEventListener("load", () => {
-  document.body.classList.remove("modal--open");
+  const params = new URLSearchParams(window.location.search);
+  const target = params.get("scroll");
+
+  if (target) {
+    const el = document.getElementById(target);
+
+    if (el) {
+      setTimeout(() => {
+        el.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 50);
+    }
+  }
 });

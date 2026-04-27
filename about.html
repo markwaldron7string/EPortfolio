@@ -31,7 +31,7 @@
         <a href="index.html" class="page-link">
           <img
             id="personal-logo"
-            class="logo"
+            class="logo2"
             src="./assets/MW-Logo.png"
             alt="MW Logo"
           />
@@ -46,11 +46,17 @@
 
       <ul class="nav__link--list">
         <li class="nav__link" onclick="toggleMenu(true)">
+          <a href="index.html#projects" class="nav__link--anchor page-link">
+            Home
+          </a>
+        </li>
+
+        <li class="nav__link" onclick="toggleMenu(true)">
           <a
-            href="index.html"
+            href="index.html?scroll=projects"
             class="nav__link--anchor link__hover-effect link__hover-effect--black page-link"
           >
-            Home
+            Projects
           </a>
         </li>
 
@@ -122,16 +128,18 @@
               </p>
               <div class="about__desc">
                 <p>
-                  I’m a frontend developer with a background that didn’t start in
-                  tech—but in music.
+                  I’m a frontend developer with a background that didn’t start
+                  in tech—but in music.
                 </p>
                 <p>
-                  I’ve been playing guitar for over 20 years, focusing on melodic
-                  and technical styles that demand
-                  <strong>precision and discipline</strong>. That mindset carried
-                  over naturally into software development, where I approach
-                  building interfaces the same way I approach writing music: with
-                  <strong>intention, structure, and attention to detail</strong>.
+                  I’ve been playing guitar for over 20 years, focusing on
+                  melodic and technical styles that demand
+                  <strong>precision and discipline</strong>. That mindset
+                  carried over naturally into software development, where I
+                  approach building interfaces the same way I approach writing
+                  music: with
+                  <strong>intention, structure, and attention to detail</strong
+                  >.
                 </p>
                 <p>
                   Before transitioning into tech, I built a career in the
@@ -139,21 +147,22 @@
                   Progressive. That experience sharpened my
                   <strong>analytical thinking</strong>,
                   <strong>problem-solving</strong>, and ability to navigate
-                  <strong>complex systems</strong>—skills I now apply directly to
-                  building reliable, user-focused applications.
+                  <strong>complex systems</strong>—skills I now apply directly
+                  to building reliable, user-focused applications.
                 </p>
                 <p>
                   My shift into frontend development started as a search for a
-                  more creative and technical challenge. Even before coding, I was
-                  already deep into problem-solving—programming MIDI-controlled
-                  guitar processors, designing automated live setups, and building
-                  custom monitoring systems.
+                  more creative and technical challenge. Even before coding, I
+                  was already deep into problem-solving—programming
+                  MIDI-controlled guitar processors, designing automated live
+                  setups, and building custom monitoring systems.
                 </p>
                 <p>
                   After completing a frontend-focused bootcamp, I built a
                   full-featured application for <strong>Skinstric</strong>—an
-                  AI-powered skincare tool that uses the selfie camera to analyze
-                  users and generate personalized product recommendations.
+                  AI-powered skincare tool that uses the selfie camera to
+                  analyze users and generate personalized product
+                  recommendations.
                 </p>
                 <p>
                   <strong>That project was a turning point:</strong> it proved I
@@ -191,6 +200,13 @@
                   <i class="fa-brands fa-linkedin"></i>
                 </a>
                 <a
+                  href="./assets/resume.docx.pdf"
+                  class="about__link resume"
+                  target="_blank"
+                >
+                  <i class="fa-solid fa-file-lines"></i>
+                </a>
+                <a
                   href="https://youtube.com/@markwaldron7string"
                   class="about__link youtube"
                   target="_blank"
@@ -207,7 +223,7 @@
     <div class="modal">
       <div class="modal__half modal__about">
         <h3 class="modal__title">Mark Waldron</h3>
-        <h4 class="modal__sub-title">Frontend Software Engineer</h4>
+        <h4 class="modal__sub-title"><span class="orange">Frontend Software Engineer</span></h4>
         <p class="modal__para">
           I help bring ideas to life through clean, modern websites that are
           fast, responsive, and easy to use. I work primarily with React and
