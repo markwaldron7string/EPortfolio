@@ -4,6 +4,15 @@ body {
   transition: all 0.4s ease;
 }
 
+strong {
+  font-weight: bolder;
+  color: rgb(0, 0, 0);
+  text-shadow:
+    0 0 1px rgba(219, 84, 0, 0.6),
+    0 0 12px rgba(214, 150, 11, 0.6),
+    0 0 24px rgba(177, 139, 0, 0.5);
+}
+
 .dark-theme p {
     color: white;
 }
@@ -52,12 +61,16 @@ body {
   font-size: 48px;
   margin-bottom: 16px;
   color: #c55c00;
+  text-shadow:
+    0 0 1px rgba(226, 132, 1, 0.6),
+    0 0 12px rgba(222, 150, 8, 0.6),
+    0 0 24px rgba(219, 174, 14, 0.5);
 }
 .dark-theme .about__title {
   color: rgba(73, 148, 240, 0.15); /* faint fill */
   text-shadow:
     0 0 1px rgba(73, 240, 98, 0.6),
-    0 0 12px rgba(18, 190, 213, 0.6),
+    0 0 12px rgba(18, 213, 132, 0.6),
     0 0 24px rgba(50, 202, 20, 0.5);
 }
 
@@ -67,17 +80,21 @@ body {
   margin-bottom: 24px;
   color: #000000;
 }
-.dark-theme .about__highlight {
-  color: rgba(9, 180, 214, 0.596); /* faint fill */
+.dark-theme strong {
+  color: rgba(0, 255, 221, 0.596); /* faint fill */
   text-shadow:
-    0 0 1px rgba(20, 208, 225, 0.6),
-    0 0 12px rgba(18, 218, 232, 0.6),
-    0 0 24px rgba(8, 218, 237, 0.5);
+    0 0 1px rgba(5, 161, 176, 0.6),
+    0 0 12px rgba(11, 200, 214, 0.6),
+    0 0 24px rgba(5, 172, 187, 0.5);
 }
 
 .about__content p {
   margin-bottom: 16px;
   line-height: 1.7;
+}
+
+.about__desc {
+font-weight: 500;
 }
 
 .about__links {
