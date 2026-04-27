@@ -34,7 +34,7 @@ body {
 .dark-theme .about__card {
   background: black;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 30px rgb(7, 211, 10);
+  box-shadow: 0 0 30px rgb(7, 184, 211);
 }
 
 .about__img {
@@ -54,11 +54,11 @@ body {
   color: #c55c00;
 }
 .dark-theme .about__title {
-  color: rgba(73, 240, 159, 0.15); /* faint fill */
+  color: rgba(73, 148, 240, 0.15); /* faint fill */
   text-shadow:
-    0 0 1px rgba(73, 240, 79, 0.6),
-    0 0 12px rgba(18, 213, 22, 0.6),
-    0 0 24px rgba(20, 202, 44, 0.5);
+    0 0 1px rgba(73, 240, 98, 0.6),
+    0 0 12px rgba(18, 190, 213, 0.6),
+    0 0 24px rgba(50, 202, 20, 0.5);
 }
 
 .about__highlight {
@@ -68,11 +68,11 @@ body {
   color: #000000;
 }
 .dark-theme .about__highlight {
-  color: rgba(9, 214, 43, 0.596); /* faint fill */
+  color: rgba(9, 180, 214, 0.596); /* faint fill */
   text-shadow:
-    0 0 1px rgba(20, 225, 85, 0.6),
-    0 0 12px rgba(18, 232, 39, 0.6),
-    0 0 24px rgba(8, 237, 73, 0.5);
+    0 0 1px rgba(20, 208, 225, 0.6),
+    0 0 12px rgba(18, 218, 232, 0.6),
+    0 0 24px rgba(8, 218, 237, 0.5);
 }
 
 .about__content p {
