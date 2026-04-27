@@ -233,6 +233,12 @@ nav,
 .dark-theme #matrix {
   opacity: 1;
 }
+
+.logo {
+  transform: translateZ(0);
+  will-change: filter;
+}
+
 .dark-theme .logo {
   /* filter: brightness(0) saturate(100%) invert(53%) sepia(79%) saturate(495%) hue-rotate(327deg) brightness(96%) contrast(92%); */
   filter: drop-shadow(0 0 10px rgb(255, 102, 0));

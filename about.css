@@ -22,7 +22,7 @@ strong {
 }
 
 .dark-theme .logo2:hover {
-  filter: drop-shadow(0 0 20px rgb(187, 255, 0));
+  filter: drop-shadow(0 0 20px rgb(106, 255, 0));
   transition: filter 0.3s ease-in-out;
 }
 
