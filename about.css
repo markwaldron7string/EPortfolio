@@ -20,14 +20,15 @@ body {
 }
 
 .about__card {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.35);
   padding: 28px;
   border-radius: 16px;
   max-width: 840px;
   text-align: center;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(24px);
+   -webkit-backdrop-filter: blur(24px);
 }
 
 .dark-theme .about__card {
@@ -50,6 +51,7 @@ body {
 .about__title {
   font-size: 48px;
   margin-bottom: 16px;
+  color: #c55c00;
 }
 .dark-theme .about__title {
   color: rgba(73, 240, 159, 0.15); /* faint fill */
@@ -63,7 +65,7 @@ body {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 24px;
-  color: #f06449;
+  color: #000000;
 }
 .dark-theme .about__highlight {
   color: rgba(9, 214, 43, 0.596); /* faint fill */
@@ -125,6 +127,16 @@ body.dark-theme {
   background-color: #0a0a0a;
   color: white;
   background: url("./assets/aurora.jpg") center / cover no-repeat fixed;
+}
+body.dark-theme::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(98, 98, 98, 0.41);
+  z-index: -1;
 }
 
 /* MOBILE */
