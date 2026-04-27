@@ -18,7 +18,9 @@
         const isDark = savedTheme === null || savedTheme !== "light";
 
         if (isDark) {
-          document.documentElement.classList.add("dark-theme");
+          document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("dark-theme");
+          });
         }
       })();
     </script>
