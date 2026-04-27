@@ -81,6 +81,7 @@ body {
 .about__links {
   margin-top: 24px;
   display: flex;
+  justify-content: center;
   gap: 16px;
 }
 
