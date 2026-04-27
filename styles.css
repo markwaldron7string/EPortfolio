@@ -18,6 +18,11 @@ body {
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
+.dark-theme-init body {
+  background: #0a0a0a;
+  color: white;
+}
+
 body.page-loaded {
   opacity: 1;
 }

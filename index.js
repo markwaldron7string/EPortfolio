@@ -4,7 +4,7 @@ let isMenuOpen = false;
 
 const savedTheme = localStorage.getItem("theme");
 
-// default to dark unless explicitly light
+// default = DARK unless explicitly light
 contrastToggle = savedTheme === null ? true : savedTheme !== "light";
 
 // apply class immediately
@@ -47,10 +47,10 @@ function updateThemeIcons() {
 function toggleContrast() {
   contrastToggle = !contrastToggle;
 
-  document.body.classList.toggle("dark-theme", contrastToggle);
-
-  // SAVE preference
   localStorage.setItem("theme", contrastToggle ? "dark" : "light");
+
+  // 🔥 THIS LINE WAS MISSING
+  document.body.classList.toggle("dark-theme", contrastToggle);
 
   if (contrastToggle) {
     backLayer.start();
@@ -368,8 +368,11 @@ document.addEventListener("click", (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  // sync visuals (DO NOT re-read localStorage here)
+  // Apply theme AFTER DOM is ready
   document.body.classList.toggle("dark-theme", contrastToggle);
+
+  // Force repaint (fixes About page bug)
+  document.body.offsetHeight;
 
   if (contrastToggle) {
     backLayer.start();
