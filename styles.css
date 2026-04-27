@@ -196,7 +196,7 @@ nav,
 .header {
   opacity: 1;
   visibility: visible;
-  transition: all 600ms 800ms;
+  transition: opacity 0.3s ease;
 }
 
 .modal--open .scroll,
@@ -302,7 +302,6 @@ nav,
   background: rgba(255, 255, 255, 0.35);
   pointer-events: none;
   z-index: 0;
-  pointer-events: none;
 }
 
 nav,
@@ -603,10 +602,12 @@ nav {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  z-index: 1000;
+  position: relative;
+  z-index: 3000;
 }
 
 .nav__menu-btn span {
+  display: block;
   width: 24px;
   height: 3px;
   background: #242424;
@@ -622,7 +623,11 @@ nav {
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 1100;
+  z-index: 3000;
+}
+
+.menu--open .nav__menu-btn span {
+  transition: all 0.3s ease !important;
 }
 
 .menu--open .header {

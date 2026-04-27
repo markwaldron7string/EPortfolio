@@ -71,8 +71,16 @@
             class="nav__link--anchor link__hover-effect link__hover-effect--black"
           >
             <span class="theme-toggle">
-              <i class="fa-solid fa-circle-half-stroke"></i>
-              <span class="theme-text">Dark Mode</span>
+              <!-- Desktop (icon only) -->
+              <span class="desktop-only">
+                <i class="fa-solid fa-circle-half-stroke"></i>
+              </span>
+
+              <!-- Mobile (icon + text) -->
+              <span class="mobile-only">
+                <i class="fa-solid fa-circle-half-stroke"></i>
+                <span class="theme-text">Dark Mode</span>
+              </span>
             </span>
           </a>
         </li>

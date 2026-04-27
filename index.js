@@ -23,18 +23,17 @@ function toggleMenu(forceClose = false) {
 /* =========================
    DARK MODE
 ========================= */
-  function updateThemeIcons() {
-  document.querySelectorAll(".theme-toggle").forEach((el) => {
-    const icon = el.querySelector("i");
-    const text = el.querySelector(".theme-text");
+function updateThemeIcons() {
+  // ONLY target icons inside theme toggle
+  document.querySelectorAll(".theme-toggle i").forEach((icon) => {
+    icon.className = contrastToggle
+      ? "fa-solid fa-sun"
+      : "fa-solid fa-circle-half-stroke";
+  });
 
-    if (contrastToggle) {
-      icon.className = "fa-solid fa-sun";
-      text.textContent = "Light Mode";
-    } else {
-      icon.className = "fa-solid fa-circle-half-stroke";
-      text.textContent = "Dark Mode";
-    }
+  // ONLY update the text label
+  document.querySelectorAll(".theme-text").forEach((text) => {
+    text.textContent = contrastToggle ? "Light Mode" : "Dark Mode";
   });
 }
 
@@ -52,7 +51,7 @@ function toggleContrast() {
     frontLayer.stop();
   }
 
-updateThemeIcons();
+  updateThemeIcons();
 }
 
 /* =========================
