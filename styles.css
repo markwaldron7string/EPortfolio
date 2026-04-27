@@ -378,22 +378,30 @@ nav,
   height: 100%;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.8s ease;
+}
+.matrix-visible #matrix-back,
+.matrix-visible #matrix-mid,
+.matrix-visible #matrix-front {
+  opacity: 1;
 }
 
 #matrix-back {
   z-index: -3;
   filter: blur(1px);
+  transition-delay: 0.1s;
 }
 
 #matrix-mid {
   z-index: -2;
   filter: blur(1px);
+  transition-delay: 0.2s;
 }
 
 #matrix-front {
   z-index: -1;
   filter: blur(1px);
+  transition-delay: 0.3s;
 }
 
 .dark-theme #matrix-back,
@@ -494,7 +502,7 @@ nav,
   background-color: #f06449;
   color: white;
   position: fixed;
-  z-index: 1000;
+  z-index: 9999;
   bottom: 32px;
   right: 40px;
   transition:

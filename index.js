@@ -368,16 +368,17 @@ document.addEventListener("click", (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Apply theme AFTER DOM is ready
   document.body.classList.toggle("dark-theme", contrastToggle);
-
-  // Force repaint (fixes About page bug)
-  document.body.offsetHeight;
 
   if (contrastToggle) {
     backLayer.start();
     midLayer.start();
     frontLayer.start();
+
+    // 👇 Delay slightly, then fade in
+    setTimeout(() => {
+      document.body.classList.add("matrix-visible");
+    }, 100);
   } else {
     backLayer.stop();
     midLayer.stop();

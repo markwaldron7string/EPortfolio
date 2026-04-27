@@ -1,12 +1,7 @@
 body {
-  background: white;
+  background: url("./assets/lights.jpg") center / cover no-repeat fixed;
   color: #242424;
   transition: all 0.4s ease;
-}
-
-.dark-theme body {
-  background: #0a0a0a;
-  color: white;
 }
 
 .dark-theme p {
@@ -20,6 +15,7 @@ body {
 .about__row {
   display: flex;
   align-items: center;
+  flex-direction: column;
   gap: 60px;
 }
 
@@ -27,6 +23,8 @@ body {
   background: rgba(255, 255, 255, 0.7);
   padding: 28px;
   border-radius: 16px;
+  max-width: 840px;
+  text-align: center;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(6px);
@@ -35,11 +33,12 @@ body {
 .dark-theme .about__card {
   background: black;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 30px rgb(217, 106, 9);
+  box-shadow: 0 0 30px rgb(7, 211, 10);
 }
 
 .about__img {
   width: 100%;
+  max-width: 300px;
   border-radius: 16px;
   filter: grayscale(100%);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
@@ -53,17 +52,11 @@ body {
   margin-bottom: 16px;
 }
 .dark-theme .about__title {
-  color: rgba(240, 100, 73, 0.15); /* faint fill */
+  color: rgba(73, 240, 159, 0.15); /* faint fill */
   text-shadow:
-    0 0 1px rgba(240, 100, 73, 0.6),
-    0 0 12px rgba(240, 100, 73, 0.6),
-    0 0 24px rgba(240, 100, 73, 0.5);
-}
-
-.about .reveal {
-  opacity: 1;
-  transform: translateY(20px);
-  animation: aboutFadeIn 0.8s ease forwards;
+    0 0 1px rgba(73, 240, 79, 0.6),
+    0 0 12px rgba(18, 213, 22, 0.6),
+    0 0 24px rgba(20, 202, 44, 0.5);
 }
 
 .about__highlight {
@@ -73,7 +66,11 @@ body {
   color: #f06449;
 }
 .dark-theme .about__highlight {
-  color: #f06449;
+  color: rgba(9, 214, 43, 0.596); /* faint fill */
+  text-shadow:
+    0 0 1px rgba(20, 225, 85, 0.6),
+    0 0 12px rgba(18, 232, 39, 0.6),
+    0 0 24px rgba(8, 237, 73, 0.5);
 }
 
 .about__content p {
@@ -121,6 +118,12 @@ body {
 .dark-theme .modal__about h3,
 .dark-theme .modal__about h4 {
   color: #242424;
+}
+
+body.dark-theme {
+  background-color: #0a0a0a;
+  color: white;
+  background: url("./assets/aurora.jpg") center / cover no-repeat fixed;
 }
 
 /* MOBILE */
