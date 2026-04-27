@@ -18,7 +18,7 @@
         const isDark = savedTheme === null || savedTheme !== "light";
 
         if (isDark) {
-          document.body.style.background = "#0a0a0a";
+          document.documentElement.classList.add("dark-theme");
         }
       })();
     </script>
@@ -223,7 +223,9 @@
     <div class="modal">
       <div class="modal__half modal__about">
         <h3 class="modal__title">Mark Waldron</h3>
-        <h4 class="modal__sub-title"><span class="orange">Frontend Software Engineer</span></h4>
+        <h4 class="modal__sub-title">
+          <span class="orange">Frontend Software Engineer</span>
+        </h4>
         <p class="modal__para">
           I help bring ideas to life through clean, modern websites that are
           fast, responsive, and easy to use. I work primarily with React and

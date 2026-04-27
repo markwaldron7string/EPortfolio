@@ -14,7 +14,7 @@ html {
 
 body {
   margin: 0;
-  background-color: white;
+  background-color: #0a0a0a;
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
