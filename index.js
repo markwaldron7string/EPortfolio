@@ -1,7 +1,14 @@
 let isModalOpen = false;
 let contrastToggle = false;
-
 let isMenuOpen = false;
+
+const savedTheme = localStorage.getItem("theme");
+
+// default to dark unless explicitly light
+contrastToggle = savedTheme === null ? true : savedTheme !== "light";
+
+// apply class immediately
+document.body.classList.toggle("dark-theme", contrastToggle);
 
 // Prevent browser from restoring scroll position (fixes mobile auto-jump)
 if ("scrollRestoration" in history) {
@@ -39,7 +46,11 @@ function updateThemeIcons() {
 
 function toggleContrast() {
   contrastToggle = !contrastToggle;
+
   document.body.classList.toggle("dark-theme", contrastToggle);
+
+  // SAVE preference
+  localStorage.setItem("theme", contrastToggle ? "dark" : "light");
 
   if (contrastToggle) {
     backLayer.start();
@@ -357,6 +368,19 @@ document.addEventListener("click", (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  // sync visuals (DO NOT re-read localStorage here)
+  document.body.classList.toggle("dark-theme", contrastToggle);
+
+  if (contrastToggle) {
+    backLayer.start();
+    midLayer.start();
+    frontLayer.start();
+  } else {
+    backLayer.stop();
+    midLayer.stop();
+    frontLayer.stop();
+  }
+
   updateThemeIcons();
 });
 

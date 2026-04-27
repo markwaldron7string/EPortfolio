@@ -12,6 +12,11 @@
       src="https://kit.fontawesome.com/a09c87c1d7.js"
       crossorigin="anonymous"
     ></script>
+    <script>
+      if (localStorage.getItem("theme") !== "light") {
+        document.write("<style>body{background:#0a0a0a;color:white;}</style>");
+      }
+    </script>
   </head>
 
   <body>
