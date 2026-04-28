@@ -19,11 +19,12 @@ strong {
 
 .dark-theme .logo2 {
   filter: drop-shadow(0 0 10px rgb(9, 217, 172));
+  transition: filter 0.3s ease-in-out;
 }
 
 .dark-theme .logo2:hover {
-  filter: drop-shadow(0 0 20px rgb(106, 255, 0));
-  transition: filter 0.3s ease-in-out;
+  filter: drop-shadow(0 0 20px rgb(255, 89, 0));
+  -webkit-filter: drop-shadow(0 0 20px rgb(255, 89, 0));
 }
 
 .about {
