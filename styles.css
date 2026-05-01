@@ -1266,7 +1266,7 @@ footer .container {
   }
 
   .project__wrapper.active .project__wrapper--bg {
-    opacity: 0.7;
+    opacity: 0.9;
   }
   
   .nav__menu-btn {
@@ -1391,9 +1391,7 @@ footer .container {
     margin-top: 12px;
     gap: 12px;
   }
-  .project__description--para {
-    display: none;
-  }
+  
   .project__description {
     left: 0;
     padding: 0;
