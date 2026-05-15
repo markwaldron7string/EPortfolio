@@ -405,13 +405,13 @@ nav,
 
 #matrix-mid {
   z-index: -2;
-  filter: blur(1px);
+  filter: blur(2px);
   transition-delay: 0.2s;
 }
 
 #matrix-front {
   z-index: -1;
-  filter: blur(1px);
+  filter: blur(3px);
   transition-delay: 0.3s;
 }
 
