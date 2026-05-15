@@ -136,15 +136,18 @@ font-weight: 500;
 
 .dark-theme .about__links a.youtube:hover {
   color: #ff0000;
-  text-shadow: none;
+  text-shadow: 
+    0 0 1px rgba(13, 190, 210, 0.6),
+    0 0 12px rgba(13, 157, 201, 0.6),
+    0 0 24px rgba(17, 213, 220, 0.5);
 }
 
 .dark-theme .about__links a.github:hover {
-  color: #d900ff;
+  color: #000000;
   text-shadow:
-    0 0 1px rgba(217, 0, 255, 0.6),
-    0 0 12px rgba(217, 0, 255, 0.6),
-    0 0 24px rgba(217, 0, 255, 0.5);
+    0 0 1px rgba(13, 190, 210, 0.6),
+    0 0 12px rgba(13, 157, 201, 0.6),
+    0 0 24px rgba(17, 213, 220, 0.5);
 }
 
 .dark-theme .about__links a.linkedin:hover {
