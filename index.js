@@ -160,7 +160,7 @@ function createMatrix(canvasId, speedMultiplier, fadeStrength, blurOffset) {
       if (Math.random() > 0.97) {
         drops[i] += speedMultiplier;
       } else {
-        drops[i] += speedMultiplier * 0.3;
+        drops[i] += speedMultiplier * 0.07;
       }
 
       // draw trail
