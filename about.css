@@ -135,31 +135,31 @@ font-weight: 500;
 }
 
 .dark-theme .about__links a.youtube:hover {
-  color: #ff0000;
+  color: #000000;
   text-shadow: 
-    0 0 1px rgba(13, 190, 210, 0.6),
-    0 0 12px rgba(13, 157, 201, 0.6),
-    0 0 24px rgba(17, 213, 220, 0.5);
+    0 0 1px rgb(255, 0, 0),
+    0 0 12px rgb(255, 0, 0),
+    0 0 24px rgb(255, 0, 0);
 }
 
 .dark-theme .about__links a.github:hover {
   color: #000000;
   text-shadow:
-    0 0 1px rgba(13, 190, 210, 0.6),
-    0 0 12px rgba(13, 157, 201, 0.6),
-    0 0 24px rgba(17, 213, 220, 0.5);
+    0 0 1px rgba(255, 255, 255, 0.6),
+    0 0 12px rgba(255, 255, 255, 0.6),
+    0 0 24px rgba(255, 255, 255, 0.5);
 }
 
 .dark-theme .about__links a.linkedin:hover {
-  color: #0077b5;
+  color: #000000;
   text-shadow:
-    0 0 1px rgba(0, 119, 181, 0.6),
-    0 0 12px rgba(0, 119, 181, 0.6),
-    0 0 24px rgba(0, 119, 181, 0.5);
+    0 0 1px rgba(0, 114, 177, 1),
+    0 0 12px rgba(0, 114, 177, 1),
+    0 0 24px rgba(0, 114, 177, 1);
 }
 
 .dark-theme .about__links a.resume:hover {
-  color: #ffffff;
+  color: #000000;
   text-shadow:
     0 0 1px rgba(13, 190, 210, 0.6),
     0 0 12px rgba(13, 157, 201, 0.6),
